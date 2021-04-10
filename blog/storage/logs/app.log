@@ -1,0 +1,4 @@
+2021/04/01 15:47:10 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"info","message":"GreizLiao：greiz-go-tour/Blog-Server","time":1617263230412447000}
+2021/04/01 15:48:08 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"info","message":"GreizLiao：greiz-go-tour/Blog-Server","time":1617263288159719000}
+2021/04/10 14:25:26 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: %!v(MISSING)State必须是[0 1]中的一个","time":1618035926151497000}
+2021/04/10 14:25:39 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: %!v(MISSING)State必须是[0 1]中的一个","time":1618035939295002000}

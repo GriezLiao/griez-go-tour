@@ -5,6 +5,7 @@ import (
 	"github.com/GriezLiao/griez-go-tour/blog/global"
 	"github.com/GriezLiao/griez-go-tour/blog/pkg/setting"
 	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
 type Model struct {
@@ -18,7 +19,7 @@ type Model struct {
 }
 
 func NewDBEngine(dbSetting *setting.DataBaseSetting) (*gorm.DB, error) {
-	db, err := gorm.Open(dbSetting.DBType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=%sparseTime=%t&loc=Local",
+	db, err := gorm.Open(dbSetting.DBType, fmt.Sprintf("%s:%s@tcp(%s)/%s?charset=%s&parseTime=%t&loc=Local",
 		dbSetting.UserName,
 		dbSetting.Password,
 		dbSetting.Host,

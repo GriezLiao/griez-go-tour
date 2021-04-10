@@ -4,8 +4,10 @@ import (
 	"github.com/GriezLiao/griez-go-tour/blog/global"
 	"github.com/GriezLiao/griez-go-tour/blog/internal/model"
 	"github.com/GriezLiao/griez-go-tour/blog/internal/routers"
+	"github.com/GriezLiao/griez-go-tour/blog/pkg/logger"
 	"github.com/GriezLiao/griez-go-tour/blog/pkg/setting"
 	"github.com/gin-gonic/gin"
+	"gopkg.in/natefinch/lumberjack.v2"
 	"log"
 	"net/http"
 	"time"
@@ -17,10 +19,26 @@ func init() {
 		log.Fatalf("init.setupSetting err: %v", err)
 	}
 
+	err = setupLogger()
+	if err != nil {
+		log.Fatalf("init.setupLogger err: %v", err)
+	}
+
 	err = setupDBEngine()
 	if err != nil {
 		log.Fatalf("init.setupDBEngine err: %v", err)
 	}
+}
+
+func setupLogger() error {
+	global.Logger = logger.NewLogger(&lumberjack.Logger{
+		Filename:  global.AppSetting.LogSavePath + "/" + global.AppSetting.LogFileName + global.AppSetting.LogFileExt,
+		MaxSize:   600,
+		MaxAge:    10,
+		LocalTime: true,
+	}, "", log.LstdFlags).WithCaller(2)
+
+	return nil
 }
 
 func setupDBEngine() error {
@@ -39,6 +57,7 @@ func setupSetting() error {
 		return err
 	}
 
+	// 把 vipper 读到的配置序列化到对象中
 	err = setting.ReadSection("Server", &global.ServerSetting)
 	if err != nil {
 		return err
@@ -59,6 +78,11 @@ func setupSetting() error {
 	return nil
 }
 
+
+// @title 博客系统
+// @version 1.0
+// @description Go 语言编程之旅：一起用 Go 做项目
+// @termsOfService https://github.com/go-programming-tour-book
 func main() {
 	/*	engine:=gin.Default()
 		engine.GET("/ping", func(context *gin.Context) {
@@ -67,6 +91,7 @@ func main() {
 			})
 		})
 		engine.Run("127.0.0.1:8989")*/
+	//global.Logger.InfoFormat("%s：greiz-go-tour/%s","GreizLiao", "Blog-Server")
 	gin.SetMode(global.ServerSetting.RunMode)
 	router := routers.NewRouter()
 	s := &http.Server{

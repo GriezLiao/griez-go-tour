@@ -18,21 +18,22 @@ type AppSetting struct {
 }
 
 type DataBaseSetting struct {
-	DBType string
-	UserName string
-	Password string
-	Host string
-	DBName string
+	DBType      string
+	UserName    string
+	Password    string
+	Host        string
+	DBName      string
 	TablePrefix string
-	Charset string
-	ParseTime bool
+	Charset     string
+	ParseTime   bool
 	MaxIdleConn int
-	MaxOpnConn int
+	MaxOpnConn  int
 }
 
+// 序列化成对象
 func (s *Setting) ReadSection(k string, v interface{}) error {
-	err:=s.vp.UnmarshalKey(k, v)
-	if err!= nil{
+	err := s.vp.UnmarshalKey(k, v)
+	if err != nil {
 		return err
 	}
 
