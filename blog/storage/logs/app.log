@@ -2,3 +2,5 @@
 2021/04/01 15:48:08 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"info","message":"GreizLiao：greiz-go-tour/Blog-Server","time":1617263288159719000}
 2021/04/10 14:25:26 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: %!v(MISSING)State必须是[0 1]中的一个","time":1618035926151497000}
 2021/04/10 14:25:39 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: %!v(MISSING)State必须是[0 1]中的一个","time":1618035939295002000}
+2021/04/10 16:12:46 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: CreatedBy为必填字段","time":1618042366207565000}
+2021/04/10 16:26:41 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"svc.DeleteTag err： Error 1054: Unknown column 'DeletedOn' in 'field list'","time":1618043201171571000}
