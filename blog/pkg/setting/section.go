@@ -15,6 +15,10 @@ type AppSetting struct {
 	LogSavePath     string
 	LogFileName     string
 	LogFileExt      string
+	UploadSavePath	string
+	UploadServerUrl string
+	UploadImageMaxSize int
+	UploadImageAllowExts []string
 }
 
 type DataBaseSetting struct {
@@ -28,6 +32,12 @@ type DataBaseSetting struct {
 	ParseTime   bool
 	MaxIdleConn int
 	MaxOpnConn  int
+}
+
+type JWTSetting struct {
+	Secret string
+	Issuer string
+	Expire time.Duration
 }
 
 // 序列化成对象

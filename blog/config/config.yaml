@@ -9,6 +9,13 @@ App:
   LogSavePath: storage/logs
   LogFileName: app
   LogFileExt: .log
+  UploadSavePath: storage/uploads
+  UploadServerUrl: http://127.0.0.1:8090/static
+  UploadImageMaxSize: 5
+  UploadImageAllowExts:
+    - .jpg
+    - .jpeg
+    - .png
 Database:
   DBType: mysql
   Username: root
@@ -20,3 +27,7 @@ Database:
   ParseTime: True
   MaxIdleConns: 10
   MaxOpenConns: 30
+JWT:
+  Secret: griez
+  Issuer: blog
+  Expire: 7200

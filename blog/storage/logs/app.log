@@ -4,3 +4,6 @@
 2021/04/10 14:25:39 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: %!v(MISSING)State必须是[0 1]中的一个","time":1618035939295002000}
 2021/04/10 16:12:46 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: CreatedBy为必填字段","time":1618042366207565000}
 2021/04/10 16:26:41 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"svc.DeleteTag err： Error 1054: Unknown column 'DeletedOn' in 'field list'","time":1618043201171571000}
+2021/04/12 18:01:05 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey为必填字段,AppSecret为必填字段","time":1618221665637739000}
+2021/04/12 18:12:04 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey为必填字段,AppSecret为必填字段","time":1618222324062175000}
+2021/04/12 18:13:31 {"callers":["/Users/wolf/griez/griez-go-tour/blog/main.go: 22 main.init.0"],"level":"error","message":"app.BindAndValid errs: AppKey为必填字段,AppSecret为必填字段","time":1618222411240187000}

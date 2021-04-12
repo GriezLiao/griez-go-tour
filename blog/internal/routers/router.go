@@ -2,11 +2,14 @@ package routers
 
 import (
 	_ "github.com/GriezLiao/griez-go-tour/blog/docs"
+	"github.com/GriezLiao/griez-go-tour/blog/global"
 	"github.com/GriezLiao/griez-go-tour/blog/internal/middleware"
+	"github.com/GriezLiao/griez-go-tour/blog/internal/routers/api"
 	v1 "github.com/GriezLiao/griez-go-tour/blog/internal/routers/api/v1"
 	"github.com/gin-gonic/gin"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
+	"net/http"
 )
 
 func NewRouter() *gin.Engine {
@@ -14,6 +17,13 @@ func NewRouter() *gin.Engine {
 	engine.Use(gin.Logger(), gin.Recovery())
 	engine.Use(middleware.Translations())
 	engine.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+
+	// 文件上传路由
+	upload := api.NewUpload()
+	engine.POST("/upload/file", upload.UploadFile)
+	engine.StaticFS("/static", http.Dir(global.AppSetting.UploadSavePath))
+	engine.GET("/auth", api.GetAuth)
+
 
 	tag := v1.NewTag()
 	article := v1.NewArticle()
@@ -33,6 +43,7 @@ func NewRouter() *gin.Engine {
 		apiv1.GET("/articles/:id", article.Get)
 		apiv1.GET("/articles", article.List)
 	}
+	apiv1.Use(middleware.JWT())
 
 	return engine
 }
